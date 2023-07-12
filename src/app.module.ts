@@ -5,9 +5,10 @@ import { PrismaClientModule } from './packages/prisma-client/prisma-client.modul
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { ResponseInterceptor } from './packages/interceptors/response.interceptor';
 import { ExceptionInterceptor } from './packages/interceptors/exception.interceptor';
+import { UserModule } from './modules/user/user.module';
 
 @Module({
-  imports: [PrismaClientModule],
+  imports: [PrismaClientModule, UserModule],
   controllers: [AppController],
   providers: [
     AppService,
