@@ -15,7 +15,7 @@ export class ExceptionInterceptor implements NestInterceptor {
       catchError((err) => {
         throw new HttpException(
           {
-            message: err.response.message || err.message || '',
+            message: err.message || err.response?.message || '',
             data: [],
             status: false,
             pager: {},

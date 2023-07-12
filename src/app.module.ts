@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PrismaClientModule } from './packages/prisma-client/prisma-client.module';
-import { APP_FILTER, APP_GUARD } from '@nestjs/core';
+import { APP_INTERCEPTOR } from '@nestjs/core';
 import { ResponseInterceptor } from './packages/interceptors/response.interceptor';
 import { ExceptionInterceptor } from './packages/interceptors/exception.interceptor';
 
@@ -12,11 +12,11 @@ import { ExceptionInterceptor } from './packages/interceptors/exception.intercep
   providers: [
     AppService,
     {
-      provide: APP_GUARD,
+      provide: APP_INTERCEPTOR,
       useClass: ResponseInterceptor,
     },
     {
-      provide: APP_FILTER,
+      provide: APP_INTERCEPTOR,
       useClass: ExceptionInterceptor,
     },
   ],
