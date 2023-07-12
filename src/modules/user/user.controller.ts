@@ -3,6 +3,7 @@ import { Controller, Body, Post } from '@nestjs/common';
 import { PrismaClientService } from 'src/packages/prisma-client/prisma-client.service';
 import { v4 } from 'uuid';
 import { PrismaClient as HappyZooClient } from 'prisma/client/happyzoo';
+import * as bcrypt from 'bcrypt';
 
 @Controller('user')
 export class UserController {
@@ -19,7 +20,7 @@ export class UserController {
         data: {
           id: user_id,
           email: body.email,
-          password: body.password,
+          password: await bcrypt.hash(body.password, await bcrypt.genSalt(10)),
         },
       }),
       this.client.profile.create({
@@ -30,6 +31,7 @@ export class UserController {
         },
       }),
     ]);
+
     return 'User has been created';
   }
 }
