@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaClient as HappyZooClient } from 'prisma/client/happyzoo';
+import { PrismaClient as HappyZooClient } from '../../../prisma/client/happyzoo';
 
 @Injectable()
 export class PrismaClientService {
