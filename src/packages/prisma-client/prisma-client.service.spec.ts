@@ -15,4 +15,9 @@ describe('PrismaClientService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  it('getHappyZooClient toBeDefined', () => {
+    service.getHappyZooClient()
+    expect(service.getHappyZooClient).toBeDefined();
+  });
 });
