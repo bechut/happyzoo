@@ -11,3 +11,11 @@ export class CreateUserDto {
   @IsNotEmpty()
   last_name: string;
 }
+
+export class UserLogInDto {
+  @IsEmail()
+  email: string;
+  @IsNotEmpty()
+  @MinLength(6)
+  password: string;
+}

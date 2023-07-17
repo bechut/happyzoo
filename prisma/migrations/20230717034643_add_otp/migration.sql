@@ -1,0 +1,13 @@
+-- CreateTable
+CREATE TABLE "Otp" (
+    "id" TEXT NOT NULL,
+    "value" VARCHAR(6) NOT NULL DEFAULT '',
+    "createdAt" TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "expiredAt" TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "user_id" TEXT NOT NULL,
+
+    CONSTRAINT "Otp_pkey" PRIMARY KEY ("id")
+);
+
+-- AddForeignKey
+ALTER TABLE "Otp" ADD CONSTRAINT "Otp_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

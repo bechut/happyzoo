@@ -17,7 +17,7 @@ describe('PrismaClientService', () => {
   });
 
   it('getHappyZooClient toBeDefined', () => {
-    service.getHappyZooClient()
+    service.getHappyZooClient();
     expect(service.getHappyZooClient).toBeDefined();
   });
 });

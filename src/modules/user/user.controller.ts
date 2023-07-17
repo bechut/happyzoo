@@ -1,8 +1,8 @@
-import { CreateUserDto } from 'src/dto/user.dto';
+import { CreateUserDto } from '../../dto/user.dto';
 import { Controller, Body, Post } from '@nestjs/common';
-import { PrismaClientService } from 'src/packages/prisma-client/prisma-client.service';
+import { PrismaClientService } from '../../packages/prisma-client/prisma-client.service';
 import { v4 } from 'uuid';
-import { PrismaClient as HappyZooClient } from 'prisma/client/happyzoo';
+import { PrismaClient as HappyZooClient } from '../../../prisma/client/happyzoo';
 import * as bcrypt from 'bcrypt';
 
 @Controller('user')

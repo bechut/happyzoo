@@ -6,9 +6,10 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
 import { ResponseInterceptor } from './packages/interceptors/response.interceptor';
 import { ExceptionInterceptor } from './packages/interceptors/exception.interceptor';
 import { UserModule } from './modules/user/user.module';
+import { AuthenticationModule } from './modules/authentication/authentication.module';
 
 @Module({
-  imports: [PrismaClientModule, UserModule],
+  imports: [PrismaClientModule, UserModule, AuthenticationModule],
   controllers: [AppController],
   providers: [
     AppService,
