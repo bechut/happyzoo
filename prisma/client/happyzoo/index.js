@@ -116,7 +116,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/srv/happyzoo/prisma/client/happyzoo",
+      "value": "C:\\Users\\Ada\\OneDrive\\Desktop\\happy_zoo\\prisma\\client\\happyzoo",
       "fromEnvVar": null
     },
     "config": {
@@ -125,12 +125,16 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "debian-openssl-3.0.x",
+        "value": "windows",
         "native": true
       },
       {
         "fromEnvVar": null,
         "value": "linux-musl-openssl-3.0.x"
+      },
+      {
+        "fromEnvVar": null,
+        "value": "windows"
       }
     ],
     "previewFeatures": [],
@@ -148,7 +152,7 @@ const config = {
   ],
   "activeProvider": "postgresql",
   "dataProxy": false,
-  "postinstall": true
+  "postinstall": false
 }
 
 const fs = require('fs')
@@ -177,8 +181,8 @@ const PrismaClient = getPrismaClient(config)
 exports.PrismaClient = PrismaClient
 Object.assign(exports, Prisma)
 
-path.join(__dirname, "libquery_engine-debian-openssl-3.0.x.so.node");
-path.join(process.cwd(), "prisma/client/happyzoo/libquery_engine-debian-openssl-3.0.x.so.node")
+path.join(__dirname, "query_engine-windows.dll.node");
+path.join(process.cwd(), "prisma/client/happyzoo/query_engine-windows.dll.node")
 
 path.join(__dirname, "libquery_engine-linux-musl-openssl-3.0.x.so.node");
 path.join(process.cwd(), "prisma/client/happyzoo/libquery_engine-linux-musl-openssl-3.0.x.so.node")
