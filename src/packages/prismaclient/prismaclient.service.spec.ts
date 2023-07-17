@@ -13,7 +13,8 @@ describe('PrismaclientService', () => {
   });
 
   it('should be defined', () => {
-    service.happyZoo();
+    const client = service.happyZoo();
     expect(service.happyZoo).toBeDefined();
+    expect(client.test).toBeDefined();
   });
 });
