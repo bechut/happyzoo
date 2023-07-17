@@ -4,9 +4,10 @@ import { AppService } from './app.service';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { ResponseInterceptor } from './packages/interceptors/response.interceptor';
 import { ExceptionInterceptor } from './packages/interceptors/exception.interceptor';
+import { UserModule } from './user/user.module';
 
 @Module({
-  imports: [],
+  imports: [UserModule],
   controllers: [AppController],
   providers: [
     AppService,

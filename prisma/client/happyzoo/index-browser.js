@@ -109,6 +109,25 @@ exports.Prisma.TestScalarFieldEnum = {
   id: 'id'
 };
 
+exports.Prisma.UserScalarFieldEnum = {
+  id: 'id',
+  email: 'email',
+  password: 'password',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ProfileScalarFieldEnum = {
+  id: 'id',
+  first_name: 'first_name',
+  last_name: 'last_name',
+  gender: 'gender',
+  age: 'age',
+  bio: 'bio',
+  user_id: 'user_id'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -119,9 +138,20 @@ exports.Prisma.QueryMode = {
   insensitive: 'insensitive'
 };
 
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+exports.GENDERS = {
+  Male: 'Male',
+  Female: 'Female',
+  Other: 'Other'
+};
 
 exports.Prisma.ModelName = {
-  Test: 'Test'
+  Test: 'Test',
+  User: 'User',
+  Profile: 'Profile'
 };
 
 /**
