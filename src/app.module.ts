@@ -5,9 +5,10 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
 import { ResponseInterceptor } from './packages/interceptors/response.interceptor';
 import { ExceptionInterceptor } from './packages/interceptors/exception.interceptor';
 import { UserModule } from './user/user.module';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 @Module({
-  imports: [UserModule],
+  imports: [UserModule, AuthenticationModule],
   controllers: [AppController],
   providers: [
     AppService,
