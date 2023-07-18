@@ -3,12 +3,16 @@ import { PrismaClientService } from './../packages/prismaclient/prismaclient.ser
 import { LoginDto } from './authentication.dto';
 import { compare } from 'bcrypt';
 import { v4 } from 'uuid';
+import { JwtService } from '../packages/jwt/jwt.service';
 
 @Controller('authentication')
 export class AuthenticationController {
-  constructor(private readonly prismaClientService: PrismaClientService) {}
+  constructor(
+    private readonly prismaClientService: PrismaClientService,
+    private readonly jwtService: JwtService,
+  ) {}
 
-  @Post()
+  @Post('login')
   async createUser(@Body() body: LoginDto) {
     const user = await this.prismaClientService
       .happyZoo()
@@ -17,18 +21,20 @@ export class AuthenticationController {
           email: body.email,
         },
       });
-    if (!compare(body.password, user.password))
+
+    if (!(await compare(body.password, user.password)))
       throw new BadRequestException('Password dows not match');
     else if (!user.status)
       throw new BadRequestException('User is not activated');
 
-    const otp = v4().slice(0, 4);
+    const otp = v4();
     await this.prismaClientService.happyZoo().otp.create({
       data: {
         user_id: user.id,
         otp,
       },
     });
-    return 'User has been created';
+    const access_token = this.jwtService.get().sign({ id: otp.slice(0, 6) });
+    return { access_token, message: 'Login successfully' };
   }
 }

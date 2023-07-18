@@ -5791,16 +5791,16 @@ export namespace Prisma {
   export type OtpWhereUniqueInput = Prisma.AtLeast<
     {
       id?: string;
-      user_id?: string;
       AND?: OtpWhereInput | OtpWhereInput[];
       OR?: OtpWhereInput[];
       NOT?: OtpWhereInput | OtpWhereInput[];
       otp?: StringFilter<'Otp'> | string;
       createdAt?: DateTimeFilter<'Otp'> | Date | string;
       expiredAt?: DateTimeFilter<'Otp'> | Date | string;
+      user_id?: StringFilter<'Otp'> | string;
       User?: XOR<UserRelationFilter, UserWhereInput>;
     },
-    'id' | 'user_id'
+    'id'
   >;
 
   export type OtpOrderByWithAggregationInput = {
