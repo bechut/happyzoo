@@ -49,6 +49,6 @@ model Otp {
   otp       String   @default("") @db.VarChar(255)
   createdAt DateTime @default(now()) @db.Timestamptz
   expiredAt DateTime @default(now()) @db.Timestamptz
-  user_id   String   @unique()
+  user_id   String   
   User      User     @relation(fields: [user_id], references: [id])
 }

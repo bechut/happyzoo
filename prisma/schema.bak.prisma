@@ -24,6 +24,7 @@ model User {
   createdAt DateTime  @default(now()) @db.Timestamptz
   updatedAt DateTime? @db.Timestamptz
   Profile   Profile?
+  Tokens    Otp[]
 }
 
 enum GENDERS {
@@ -41,4 +42,13 @@ model Profile {
   bio        String?
   user_id    String   @unique()
   User       User     @relation(fields: [user_id], references: [id])
+}
+
+model Otp {
+  id        String   @id @default(uuid())
+  otp       String   @default("") @db.VarChar(255)
+  createdAt DateTime @default(now()) @db.Timestamptz
+  expiredAt DateTime @default(now()) @db.Timestamptz
+  user_id   String   
+  User      User     @relation(fields: [user_id], references: [id])
 }
