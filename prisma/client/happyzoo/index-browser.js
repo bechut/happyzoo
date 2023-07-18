@@ -128,6 +128,14 @@ exports.Prisma.ProfileScalarFieldEnum = {
   user_id: 'user_id'
 };
 
+exports.Prisma.OtpScalarFieldEnum = {
+  id: 'id',
+  otp: 'otp',
+  createdAt: 'createdAt',
+  expiredAt: 'expiredAt',
+  user_id: 'user_id'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -151,7 +159,8 @@ exports.GENDERS = {
 exports.Prisma.ModelName = {
   Test: 'Test',
   User: 'User',
-  Profile: 'Profile'
+  Profile: 'Profile',
+  Otp: 'Otp'
 };
 
 /**
